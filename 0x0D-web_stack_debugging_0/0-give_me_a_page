@@ -8,4 +8,3 @@ sleep 5
 
 # Check if Apache is serving the correct page
 curl 0:8080
-
