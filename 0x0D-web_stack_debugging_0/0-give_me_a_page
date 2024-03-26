@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-
-# Start Docker container with Apache running and port 8080 mapped to port 80
-docker run -p 8080:80 -d -it holbertonschool/265-0
-
-# Wait for Apache to start
-sleep 5
-
-# Check if Apache is serving the correct page
-curl 0:8080
+# Start Apache so as to return a
+# page conatining Hello Holberton
+service apache2 start
