@@ -34,14 +34,14 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend clickviral-tech-frontend
+frontend admens-tech-frontend
     bind *:80
-    default_backend clickviral-tech-backend
+    default_backend admens-tech-backend
 
-backend clickviral-tech-backend
+backend admens-tech-backend
     balance roundrobin
-    server 151666-web-01 100.25.190.21:80 check
-    server 151666-web-02 54.160.77.90:80 check
+    server 491691-web-01 100.26.170.190:80 check
+    server 491691-web-02 18.204.11.53:80 check
 "
 
 # shellcheck disable=SC2154
@@ -57,3 +57,5 @@ if [ "$(pgrep -c haproxy)" -le 0 ]; then
 else
 	sudo service haproxy restart
 fi
+
+
