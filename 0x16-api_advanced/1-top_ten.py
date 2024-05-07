@@ -19,6 +19,9 @@ def top_ten(subreddit):
     if response.status_code == 200:
         # Parsed the JSON data from the response
         data = response.json()
+        if not response.is_json or not responce.get_json():
+            print("None")
+            return
 
         # Check if the subreddit exists
         if 'error' in data:
