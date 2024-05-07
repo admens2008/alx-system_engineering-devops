@@ -9,8 +9,8 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-Agent": "Site24x7"
     }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code >= 404:
+    response = requests.get(url, headers=headers)
+    if response.status_code >= 400:
         return 0
     results = response.json().get("data")
     return results.get("subscribers")
