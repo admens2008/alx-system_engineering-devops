@@ -37,3 +37,4 @@ def top_ten(subreddit):
             print("None")
     except (requests.RequestException, KeyError, json.JSONDecodeError):
         print("None")
+        return
