@@ -4,13 +4,19 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    """Return the number of subscribers for a given subreddit."""
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {
-        "User-Agent": "Site24x7"
+        "User-Agent": "MyRedditClient/1.0"  # Custom User-Agent header
     }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code >= 400:
-        return 0
-    results = response.json().get("data")
-    return results.get("subscribers")
+
+    try:
+        response = requests.get(url, headers=headers, allow_redirects=False)
+        if response.status_code == 200:
+            data = response.json()
+            if 'data' in data and 'subscribers' in data['data']:
+                return data['data']['subscribers']
+    except requests.RequestException:
+        pass
+
+    return 0  # Return 0 if the request fails or the subreddit is invalid
