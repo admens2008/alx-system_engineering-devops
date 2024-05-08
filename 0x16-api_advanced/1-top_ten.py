@@ -15,7 +15,7 @@ def top_ten(subreddit):
 
     # GET request to the Reddit API
     try:
-        response = requests.get(url, headers=headers,  allow_redirects=False)
+        response = requests.get(url, headers=headers)
 
         # Check if the response is successful (status code 200)
         if response.status_code == 200:
